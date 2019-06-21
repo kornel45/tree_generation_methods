@@ -64,10 +64,11 @@ def hierarchy_pos(G, root=None, width=1., vert_gap=0.2, vert_loc=0, xcenter=0.5)
     return _hierarchy_pos(G, root, width, vert_gap, vert_loc, xcenter)
 
 
-def plot_tree(edges):
+def plot_tree(edges, name='hierarhy.png'):
     G = nx.Graph()
     G.add_edges_from(edges)
     pos = hierarchy_pos(G, 1)
+    plt.figure(figsize=(20, 10))
     nx.draw(G, pos=pos, with_labels=True)
-    plt.savefig('hierarchy.png')
+    plt.savefig(name)
 
